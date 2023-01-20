@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: support
+  labels:
+    app: support
+    os: ubuntu
+    docker: python3.9
+spec:
+  containers:
+  # - image: compute-artifactory.amd.com:5000/citadel-docker/mainline/support:latest
+  - image: gajuambi/support:latest
+    env:
+    - name: DEMO_FAREWELL
+      value: "Such a sweet sorrow"
+    # command:
+    #   - "sleep"
+    #   - "604800"
+    imagePullPolicy: Always
+    name: support
+  restartPolicy: Always
